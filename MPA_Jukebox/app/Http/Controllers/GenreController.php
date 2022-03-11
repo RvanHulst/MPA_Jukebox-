@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Genre;
+
 
 class GenreController extends Controller
 {
@@ -11,8 +13,6 @@ class GenreController extends Controller
 
         //dd($genrelist);
 
-        foreach($genrelist as $index){
-            print_r($index->genre);
-        }
+        return view('genre', ["genres"=> $genrelist]);
     }
 }
