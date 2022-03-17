@@ -8,11 +8,18 @@ use App\Models\Genre;
 
 class GenreController extends Controller
 {
-    public function index(){
-        $genrelist = Genre::all();
+    function index(){
+        $allGenres = Genre::all();
 
         //dd($genrelist);
 
-        return view('genre', ["genres"=> $genrelist]);
+        return view('genre', compact('allGenres'));
     }
+
+    function getAllSongFromGenre($genre_id){
+        $genreSongs = Genre::getSongs($genre_id);
+
+        return view('genreSong', compact('genreSongs'));
+    }
+
 }

@@ -8,10 +8,10 @@ use App\Models\Song;
 class SongController extends Controller
 {
     public function index(){
-        $songlist = Song::all();
+        $allSongs = Song::all();
 
         //dd($songlist);
 
-        return view('song', ["songs"=> $songlist]);
+        return view('song', compact('allSongs'));
     }
 }

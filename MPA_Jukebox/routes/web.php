@@ -19,5 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//genre routes
 Route::get('/genre', [GenreController::class, 'index']);
+Route::get('/genre/{genre_id}', [GenreController::class, 'getAllSongFromGenre']);
+
+//Song routes
 Route::get('/song', [SongController::class, 'index']);
+
+
+
