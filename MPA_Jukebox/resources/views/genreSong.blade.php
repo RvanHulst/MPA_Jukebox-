@@ -1,6 +1,7 @@
 @include('includes.header')
+@include('includes.navbar')
     <div class="container-fluid d-flex flex-wrap justify-content-evenly">
-        @foreach ($genreSongs as $song)
+        @foreach ($genre->songs as $song)
         <div class="card" style="width: 20rem;">
         <img src={{ $song->image }} class="card-img-top">
             <div class="card-body">

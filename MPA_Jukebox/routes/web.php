@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 //genre routes
 Route::get('/genre', [GenreController::class, 'index']);
-Route::get('/genre/{genre_id}', [GenreController::class, 'getAllSongFromGenre']);
+Route::get('/genre/{genre}', [GenreController::class, 'getAllSongFromGenre']);
 
 //Song routes
 Route::get('/song', [SongController::class, 'index']);

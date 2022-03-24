@@ -1,4 +1,5 @@
 @include('includes.header')
+@include('includes.navbar')
 <div class="container-fluid d-flex flex-wrap justify-content-evenly">
     @foreach ($allGenres as $genre)
     <div class="card" style="width: 18rem;">

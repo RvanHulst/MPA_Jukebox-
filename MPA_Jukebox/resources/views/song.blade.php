@@ -1,4 +1,5 @@
 @include('includes.header')
+@include('includes.navbar')
     <div class="container-fluid d-flex flex-wrap justify-content-evenly">
       @foreach ($allSongs as $song)
       <div class="card" style="width: 20rem;">

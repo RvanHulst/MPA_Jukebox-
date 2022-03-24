@@ -15,11 +15,13 @@ class GenreController extends Controller
 
         return view('genre', compact('allGenres'));
     }
+// paramenter binding
+    function getAllSongFromGenre(Genre $genre){
+        //$genreSongs = Genre::getSongs($genre_id);
+        //$genreSongs = Genre::where('id', $genre_id)->get();
+        //$genre = Genre::find($genre_id);
 
-    function getAllSongFromGenre($genre_id){
-        $genreSongs = Genre::getSongs($genre_id);
-
-        return view('genreSong', compact('genreSongs'));
+        return view('genreSong',['genre' => $genre]);
     }
 
 }
