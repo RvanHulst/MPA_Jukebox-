@@ -5,7 +5,7 @@
         <div class="card" style="width: 20rem;">
         <img src={{ $song->image }} class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">{{ $song->name }}</h5>
+            <h5 class="card-title"> <a href="{{ url('/song', $song->id) }}">{{ $song->name }} </a></h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
             <ul class="list-group list-group-flush">
@@ -14,8 +14,7 @@
               <li class="list-group-item">Song Genre: {{ $song->genre->genre }}</li>
             </ul>
             <div class="card-body">
-              <a href="#" class="card-link btn btn-success">Card link</a>
-              <a href="#" class="card-link btn btn-danger">Another link</a>
+            <a href="#" class="card-link btn btn-success">Add song</a>
             </div>
         </div>
         @endforeach

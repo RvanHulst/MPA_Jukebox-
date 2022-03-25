@@ -12,6 +12,12 @@ class SongController extends Controller
 
         //dd($songlist);
 
-        return view('song', compact('allSongs'));
+        return view('allSongs', ['allSongs' => $allSongs]);
     }
+
+    function getSongInformation(Song $song){
+
+        return view('song',['song' => $song]);
+    }
+
 }
