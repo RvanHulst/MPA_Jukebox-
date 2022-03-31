@@ -13,7 +13,7 @@
           <a class="nav-link" href="/genre">Genre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Playlist</a>
+          <a class="nav-link" href="/playlist">Playlist</a>
         </li>
       </ul>
     </div>

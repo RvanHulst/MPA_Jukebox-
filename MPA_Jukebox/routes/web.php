@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\PlaylistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,5 @@ Route::get('/songs', [SongController::class, 'index']);
 Route::get('/song/{song}', [SongController::class, 'getSongInformation']);
 
 
-
+//Playlist routes
+Route::get('/playlist', [PlaylistController::class, 'index']);
