@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 class PlaylistController extends Controller
 {
     public function index(Request $request){
-        
+        //AddPlaylistitems();
         $request->session()->all();
         dd($request->session()->all());
         return view('playlist');
