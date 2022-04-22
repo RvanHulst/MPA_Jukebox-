@@ -2,15 +2,31 @@
 
 use Illuminate\Http\Request;
 
-class Cart
+class Playlist
 {
     public $playlistItems = [];
 
+// Add playlistItems fuction
 
-    public function __construct($playlistItems){
-        $this->playlistItems = $playlistItemsame;
+// Remove playlistItems fuction
 
-    }
+// Skipp playlistItems fuction
+
+// Delete playlists fuction
+
+// Add playlists function
+
+// Show Playlists function
+
+// Show Playlistitems
+
+
+
+
+    //public function __construct($playlistItems){
+        //$this->playlistItems = $playlistItems;
+    
+    //}
 
 }
 

@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class PlaylistController extends Controller
 {
-    public function index(){
-        Session::flash('message','This is a message!');  
+    public function index(Request $request){
+        
+        $request->session()->all();
+        dd($request->session()->all());
         return view('playlist');
+
+      
     }
 }
  
