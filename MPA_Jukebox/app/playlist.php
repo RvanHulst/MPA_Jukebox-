@@ -1,44 +1,59 @@
 <?php
 
+namespace App;
+
 use Illuminate\Http\Request;
+use App\Models\Song;
 
-class Playlist{
-    public $playlistItems = [];
+class Playlist
+{
+    private $playlist;
 
-public function Playlist(){
-    return view('playlist');
-}
-// Add playlistItems fuction
- public function AddPlaylistitems($id){
-    $song = Song::findOrFail($id);
-
-    $playlist = session()->get('playlist', []);
-
-    if(isset($playlist[$id])) {
-        $playlist[$id]['quantity']++;
-    } else {    
-        $playlist[$id] = [
-            "name" => $song->name,
-            "quantity" => 1,
-            "price" => $product->price,
-            "image" => $product->image
-        ];
+    public function __construct(){
+        $this->playlist = NULL;
     }
-    session()->put('playlist', $playlist);
 
- }
+    public function Playlist(){
+        return view('playlist');
+    }
 
-// Remove playlistItems fuction
+    // Add playlistItems fuction
+    public function AddPlaylistitems($request, $id){
+        $song = Song::findOrFail($id);
 
-// Skipp playlistItems fuction
+        //dd($song);
 
-// Delete playlists fuction
+        $playlist = $request->session()->get('playlist');
+  
+        $request->session()->push('playlist', $song);
 
-// Add playlists function
+        dd($request->session());
+        
+        if(isset($playlist[$id])) {
+            $playlist[$id]['quantity']++;
+        } else {    
+            $playlist[$id] = [
+                "name" => $song->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image
+            ];
+        }
+        session()->put('playlist', $playlist);
 
-// Show Playlists function
+    }
 
-// Show Playlistitems
+    // Remove playlistItems fuction
+
+    // Skipp playlistItems fuction
+
+    // Delete playlists fuction
+
+    // Add playlists function
+
+    // Show Playlists function
+
+    // Show Playlistitems
 
 
 
