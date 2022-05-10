@@ -11,11 +11,11 @@ use App\Playlist;
 class PlaylistController extends Controller
 {
     public function index(Request $request){
-        //AddPlaylistitems();
+        //addPlaylistitems();
         $request->session()->all();
         
         $playlist = new Playlist();
-        $playlist->AddPlaylistitems($request, '1');
+        $playlist->addPlaylistitems($request, '4');
         //dd($request->session()->all());
 
         return view('playlist');

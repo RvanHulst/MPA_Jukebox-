@@ -5,12 +5,15 @@ namespace App;
 use Illuminate\Http\Request;
 use App\Models\Song;
 
+
 class Playlist
 {
     private $playlist;
 
     public function __construct(){
-        $this->playlist = NULL;
+        //$this->playlist = NULL;
+        $this->playlist = session()->get('playlist');
+
     }
 
     public function Playlist(){
@@ -18,29 +21,20 @@ class Playlist
     }
 
     // Add playlistItems fuction
-    public function AddPlaylistitems($request, $id){
+    public function addPlaylistitems($request, $id){
         $song = Song::findOrFail($id);
 
         //dd($song);
-
-        $playlist = $request->session()->get('playlist');
-  
         $request->session()->push('playlist', $song);
-
-        dd($request->session());
         
-        if(isset($playlist[$id])) {
-            $playlist[$id]['quantity']++;
-        } else {    
-            $playlist[$id] = [
-                "name" => $song->name,
-                "quantity" => 1,
-                "price" => $product->price,
-                "image" => $product->image
-            ];
-        }
-        session()->put('playlist', $playlist);
 
+        foreach($this->playlist as $song){
+           print_r($song->name);
+           print_r($song->duration);
+        }
+       // dd($request->session()->get('playlist'));
+        
+        
     }
 
     // Remove playlistItems fuction
