@@ -14,7 +14,7 @@ class PlaylistController extends Controller
         //addPlaylistitems();
         $request->session()->all();
         
-        $playlist = new Playlist();
+        $playlist = new Playlist($request);
         $playlist->addPlaylistitems($request, '4');
         //dd($request->session()->all());
 

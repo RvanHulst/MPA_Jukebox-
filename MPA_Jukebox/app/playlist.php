@@ -10,10 +10,12 @@ class Playlist
 {
     private $playlist;
 
-    public function __construct(){
-        //$this->playlist = NULL;
-        $this->playlist = session()->get('playlist');
-
+    public function __construct($request){
+        if($request->session()->has('playlist')){
+            $this->playlist = session()->get('playlist');
+        } else{
+            $this->playlist = NULL;
+        }
     }
 
     public function Playlist(){
@@ -22,11 +24,13 @@ class Playlist
 
     // Add playlistItems fuction
     public function addPlaylistitems($request, $id){
+
         $song = Song::findOrFail($id);
 
         //dd($song);
-        $request->session()->push('playlist', $song);
-        
+        //$request->session()->push('playlist', $song);
+        //$request->session()->flush('playlist', $song);
+
 
         foreach($this->playlist as $song){
            print_r($song->name);
