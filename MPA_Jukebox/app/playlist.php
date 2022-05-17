@@ -26,19 +26,19 @@ class Playlist
     public function addPlaylistitems($request, $id){
 
         $song = Song::findOrFail($id);
-
-        //dd($song);
         //$request->session()->push('playlist', $song);
         //$request->session()->flush('playlist', $song);
-
 
         foreach($this->playlist as $song){
            print_r($song->name);
            print_r($song->duration);
         }
        // dd($request->session()->get('playlist'));
-        
-        
+    }
+
+
+    public function getPlaylistItems(){
+        return $this->playlist;
     }
 
     // Remove playlistItems fuction
