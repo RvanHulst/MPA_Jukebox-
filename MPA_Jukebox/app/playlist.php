@@ -14,19 +14,15 @@ class Playlist
         if($request->session()->has('playlist')){
             $this->playlist = session()->get('playlist');
         } else{
-            $this->playlist = NULL;
+            $this->playlist = [];
         }
-    }
-
-    public function Playlist(){
-        return view('playlist');
     }
 
     // Add playlistItems fuction
     public function addPlaylistitems($request, $id){
 
         $song = Song::findOrFail($id);
-        //$request->session()->push('playlist', $song);
+        $request->session()->push('playlist', $song);
         //$request->session()->flush('playlist', $song);
 
         foreach($this->playlist as $song){

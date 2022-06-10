@@ -30,4 +30,4 @@ Route::get('/song/{song}', [SongController::class, 'getSongInformation']);
 
 
 //Playlist routes
-Route::get('/playlist', [PlaylistController::class, 'getItems']);
+Route::get('/playlist', [PlaylistController::class, 'index']);

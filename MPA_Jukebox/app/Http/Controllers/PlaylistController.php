@@ -12,18 +12,16 @@ class PlaylistController extends Controller
 {
     public function index(Request $request){
         //addPlaylistitems();
-        
-        $playlist = new Playlist($request);
-        $playlist->addPlaylistitems($request, '4');
+        //$playlist = new Playlist($request);
         //dd($request->session()->all());
-        return view('playlist', compact('playlist'));
 
-
-    }
-    public function getItems(Request $request){
-        $playlist = new Playlist($request);
-        $playlist->getPlaylistItems();
+        $playlistObject = new Playlist($request);
+        
+        //$playlistObject->addPlaylistitems($request, '4');
+        $playlist = $playlistObject->getPlaylistItems();
 
         return view('playlist', ['playlist' => $playlist]);
+
+
     }
 }
