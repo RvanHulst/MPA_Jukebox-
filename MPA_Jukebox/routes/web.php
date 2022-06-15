@@ -17,7 +17,7 @@ use App\Http\Controllers\PlaylistController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('songs');
 });
 
 //genre routes
@@ -36,4 +36,5 @@ Route::get('/playlist/{song}', [PlaylistController::class, 'addPlaylistitems']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [SongController::class, 'index'])->name('songs');
