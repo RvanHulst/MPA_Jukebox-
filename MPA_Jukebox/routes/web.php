@@ -33,3 +33,7 @@ Route::get('/song/{song}', [SongController::class, 'getSongInformation']);
 Route::get('/playlist', [PlaylistController::class, 'index']);
 Route::get('/playlist/{song}', [PlaylistController::class, 'addPlaylistitems']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
