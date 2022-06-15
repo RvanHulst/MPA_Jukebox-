@@ -31,8 +31,6 @@ class Playlist
         }
        // dd($request->session()->get('playlist'));
     }
-
-
     public function getPlaylistItems(){
         return $this->playlist;
     }

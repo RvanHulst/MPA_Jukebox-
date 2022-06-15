@@ -24,4 +24,12 @@ class PlaylistController extends Controller
 
 
     }
+    public function addPlaylistitems(Request $request, $id){
+        $playlist = new Playlist($request);
+        $playlist->addPlaylistitems($request, $id);
+
+        //return back();
+
+        return redirect()->route('songs');
+    }
 }

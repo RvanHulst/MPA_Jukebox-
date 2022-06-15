@@ -14,7 +14,7 @@
               <li class="list-group-item">Song Genre: {{ $song->genre->genre }}</li>
             </ul>
             <div class="card-body">
-            <a href="#" class="card-link btn btn-success">Add song</a>
+              <a href="{{ url('/playlist', $song->id)}}" class="card-link btn btn-success">Add song</a>
             </div>
         </div>
         @endforeach

@@ -9,6 +9,7 @@
           <p class="card-text"><small class="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, autem unde! Accusantium ut cumque perspiciatis consequatur nesciunt sapiente, consequuntur pariatur, rerum minima magnam qui, facilis doloribus expedita neque rem soluta.</small></p>
           <p class="card-text"><small class="text-muted">Song duration: {{ $song->duration }}</small></p>
         </div>
+        <div class="card-footer bg-transparent">Footer</div>
       </div>
 
     @endforeach

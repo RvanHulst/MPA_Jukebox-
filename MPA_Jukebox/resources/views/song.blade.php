@@ -17,7 +17,7 @@
         <li class="list-group-item">Artist/Band: {{ $song->artistband }}</li>
         <li class="list-group-item">Song duration: {{ $song->duration }}</li>
         <li class="list-group-item">Song Genre: {{ $song->genre->genre }}</li>
-        <li class="list-group-item"><a href="#" class="card-link btn btn-success">Add song</a></li>
+        <li class="list-group-item"> <a href="{{ url('/playlist', $song->id)}}" class="card-link btn btn-success">Add song</a></li>
       </ul>
     </div>
   </div>
