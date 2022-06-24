@@ -28,8 +28,16 @@ class PlaylistController extends Controller
         $playlist = new Playlist($request);
         $playlist->addPlaylistitems($request, $id);
 
-        //return back();
+        return back();
 
-        return redirect()->route('songs');
+        //return redirect()->route('songs');
     }
+    public function deletePlaylistItems(Request $request){
+        $id = $_POST['id'];
+        $index = $_POST['index'];   
+        $deletePlaylistObject = new Playlist($request);
+        $deletePlaylistObject->deletePlaylistItems($request, $id, $index);
+        return redirect()->route('playlist');
+    }
+
 }

@@ -2,24 +2,23 @@
 
 namespace App;
 
-use Illuminate\Http\Request;
 use App\Models\Song;
 
 
 class Playlist
 {
-    private $playlist;
+    public $playlist;
 
     public function __construct($request){
         if($request->session()->has('playlist')){
-            $this->playlist = session()->get('playlist');
+            $this->playlist = $request->session()->get('playlist');
         } else{
             $this->playlist = [];
         }
     }
 
     // Add playlistItems fuction
-    public function addPlaylistitems($request, $id){
+    public function addPlaylistItems($request, $id){
 
         $song = Song::findOrFail($id);
         $request->session()->push('playlist', $song);
@@ -33,6 +32,25 @@ class Playlist
     }
     public function getPlaylistItems(){
         return $this->playlist;
+
+    }
+    //public function deletePlaylistItems($request, $id){
+    //  $request->session->forget('id', $id);
+    // }
+
+    public function deletePlaylistItems($request, $id, $index){
+        unset($this->playlist[$index]);
+        $this->saveToSession($request);
+    }
+
+    public function saveToSession($request){
+        $request->session()->forget('playlist');
+        $request->session()->put('playlist', $this->playlist);
+
+        //sessie ophalen.
+
+        //sessie nieuwe opslaan en de oude overschrijven
+
     }
 
     // Remove playlistItems fuction
