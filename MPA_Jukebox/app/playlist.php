@@ -23,11 +23,6 @@ class Playlist
         $song = Song::findOrFail($id);
         $request->session()->push('playlist', $song);
         //$request->session()->flush('playlist', $song);
-
-        foreach($this->playlist as $song){
-           print_r($song->name);
-           print_r($song->duration);
-        }
        // dd($request->session()->get('playlist'));
     }
     public function getPlaylistItems(){
@@ -50,28 +45,18 @@ class Playlist
         //sessie ophalen.
 
         //sessie nieuwe opslaan en de oude overschrijven
+    }
+
+    public function addPlaylist($request, $id){
 
     }
 
-    // Remove playlistItems fuction
+    public function editPlaylist(){
+        
+    }
 
-    // Skipp playlistItems fuction
+    public function savePlaylist(){
 
-    // Delete playlists fuction
-
-    // Add playlists function
-
-    // Show Playlists function
-
-    // Show Playlistitems
-
-
-
-
-    //public function __construct($playlistItems){
-        //$this->playlistItems = $playlistItems;
-    
-    //}
-
+    }
 }
 

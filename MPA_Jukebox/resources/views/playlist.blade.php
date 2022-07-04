@@ -15,7 +15,7 @@
               @csrf
               <input type="hidden" name="id" value="{{$song->id}}">
               <input type="hidden" name="index" value="{{$index}}">
-              <input type="submit"class="card-link btn btn-danger">
+              <input type="submit"class="card-link btn btn-danger" value="Delete">
             <!--<a href="{{ url('/deletePlaylistItems', $song->id, $index)}}" class="card-link btn btn-danger">Remove song</a>-->
             </form>
           </div>
