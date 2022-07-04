@@ -24,4 +24,9 @@
 
     @endforeach
 </div>
+  <div class="container-fluid d-flex flex-wrap justify-content-evenly">
+    <div class="card mb-3">
+        <div class="card-body">
+    <p class="card-text">Total time of all songs: {{$time}} </p>
+  </div>
 @include('includes.footer')

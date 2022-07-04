@@ -17,7 +17,7 @@ class CreateSongsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('artistband');
-            $table->string('duration');
+            $table->integer('duration');
             $table->string('image');
             $table->foreignId('genre_id')->constraint();
             $table->timestamps();

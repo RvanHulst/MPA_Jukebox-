@@ -19,8 +19,8 @@ class PlaylistController extends Controller
         
         //$playlistObject->addPlaylistitems($request, '4');
         $playlist = $playlistObject->getPlaylistItems();
-
-        return view('playlist', ['playlist' => $playlist]);
+        $time = $playlistObject->totalTime();
+        return view('playlist', ['playlist' => $playlist, 'time' => $time]);
 
 
     }
@@ -54,5 +54,11 @@ class PlaylistController extends Controller
     public function savePlaylist(){
 
     }
+
+
+
+    // time functionality
+
+    // maak een loop uit de array en dan de tijd optellen van die playlist
 
 }

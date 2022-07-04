@@ -58,5 +58,16 @@ class Playlist
     public function savePlaylist(){
 
     }
+
+    public function totalTime(){
+        $time = 0;
+        
+        foreach($this->playlist as $song){
+            $time = $time + $song->duration;
+            gmdate("H:i:s");
+            
+        }
+        return($time);
+    }
 }
 
