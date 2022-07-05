@@ -5,10 +5,10 @@ namespace App;
 use App\Models\Song;
 
 
-class Playlist
+class Queue
 {
     public $playlist;
-
+    
     public function __construct($request){
         if($request->session()->has('playlist')){
             $this->playlist = $request->session()->get('playlist');
@@ -33,6 +33,8 @@ class Playlist
     //  $request->session->forget('id', $id);
     // }
 
+
+    // Delete playlistItems function
     public function deletePlaylistItems($request, $id, $index){
         unset($this->playlist[$index]);
         $this->saveToSession($request);
@@ -58,15 +60,16 @@ class Playlist
     public function savePlaylist(){
 
     }
-
+    // totalTime function
     public function totalTime(){
+        // Gives a base value 0
         $time = 0;
         
+        // Loops trough the playlist and counts the song durations together
         foreach($this->playlist as $song){
             $time = $time + $song->duration;
-            gmdate("H:i:s");
-            
         }
+        // stop the function and returns the calculated time.
         return($time);
     }
 }

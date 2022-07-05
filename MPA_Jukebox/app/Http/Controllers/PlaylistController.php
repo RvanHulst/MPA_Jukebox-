@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Playlist;
+use App\Queue;
 
 
 
@@ -15,7 +15,7 @@ class PlaylistController extends Controller
         //$playlist = new Playlist($request);
         //dd($request->session()->all());
 
-        $playlistObject = new Playlist($request);
+        $playlistObject = new Queue($request);
         
         //$playlistObject->addPlaylistitems($request, '4');
         $playlist = $playlistObject->getPlaylistItems();
@@ -48,11 +48,14 @@ class PlaylistController extends Controller
     }
 
     public function editPlaylist(){
+    // Je kan de naam aanpassen van de playlist.
+    // je kan nummer nog steeds verwijderen uit de playlist.
         
     }
 
     public function savePlaylist(){
-
+        //Je kan de playlist opslaan zodat die de naam onthoud en nummers die er instaat
+        //Opslaan moet vast staan aan een user en niet dat iedereen het oppeens ziet.
     }
 
 
