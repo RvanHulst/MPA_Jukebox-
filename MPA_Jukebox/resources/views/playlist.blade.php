@@ -1,6 +1,13 @@
 @include('includes.header')
 @include('includes.navbar')
 <div class="container-fluid d-flex flex-wrap justify-content-evenly">
+  <div class="card mb-3">
+
+        <form action="/savePlaylist" method="get">
+          <input type="text" name="playlistName" placeholder="place playlist name here">
+          <input type="submit"class="card-link btn btn-success" value="Save">
+        </form>
+
     @foreach ($playlist as $index => $song)
     <div class="card mb-3">
         <div class="card-body">

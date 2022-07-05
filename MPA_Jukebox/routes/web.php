@@ -5,6 +5,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\PlaylistController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,7 @@ Route::get('/song/{song}', [SongController::class, 'getSongInformation']);
 //Playlist routes
 Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist');
 Route::get('/playlist/{song}', [PlaylistController::class, 'addPlaylistitems']);
+Route::get('/savePlaylist', [PlaylistController::class, 'savePlaylist']);
 Route::post('/deletePlaylistItems', [PlaylistController::class, 'deletePlaylistItems']);
 
 Auth::routes();
