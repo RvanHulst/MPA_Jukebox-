@@ -48,4 +48,10 @@ class PlaylistController extends Controller
         return redirect()->route('playlist');
 
     }
+    public function getAllPlaylists(){
+        $playlist = new Playlist();
+        $playlist = $playlist->where('user_id', auth()->user()->id)->get(); 
+        return view('allPlaylists', ['playlists' => $playlist]);
+
+    }
 }

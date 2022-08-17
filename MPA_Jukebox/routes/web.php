@@ -35,6 +35,7 @@ Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist');
 Route::get('/playlist/{song}', [PlaylistController::class, 'addPlaylistitems']);
 Route::get('/savePlaylist', [PlaylistController::class, 'savePlaylist']);
 Route::post('/deletePlaylistItems', [PlaylistController::class, 'deletePlaylistItems']);
+Route::get('/allPlaylists', [PlaylistController::class, 'getAllPlaylists']);
 
 Auth::routes();
 
