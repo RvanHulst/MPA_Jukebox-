@@ -14,8 +14,8 @@ class CreatePlaylistSongTable extends Migration
     public function up()
     {
         Schema::create('playlist_song', function (Blueprint $table) {
-            $table->foreignId('playlistId')->constrained;
-            $table->foreignId('ongId')->constrained;
+            $table->foreignId('playlist_id')->constrained;
+            $table->foreignId('song_id')->constrained;
         });
     }
 

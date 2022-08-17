@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlaylistSong extends Model
 {
+    protected $table = 'playlist_song';
 
 }
