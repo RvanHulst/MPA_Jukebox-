@@ -16,6 +16,18 @@
             <div class="card-body">
               <a href="{{ url('/playlist', $song->id)}}" class="card-link btn btn-success">Add song</a>
             </div>
+            @if(Auth::user())
+            <form method="get" action="{{ url('/saveToPlaylist')}}">
+              @csrf
+              <div class="card-body">
+                  <select name="playlistName">
+                    @foreach($allPlaylists as $playlist) <option>{{$playlist->name}}</option> @endforeach
+                  </select>
+                  <input name="song_id" type="hidden" value="{{$song->id}}">
+                <input class="btn btn-success" value="Add song to playlist" type="submit">
+              </div>
+           </form>
+            @endif
       </div>
       @endforeach
     </div>

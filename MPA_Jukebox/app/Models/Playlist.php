@@ -13,6 +13,8 @@ use App\Queue;
 
 class Playlist extends Model
 {
+    public $timestamps = false;
+
     public function songs(){
         return $this->belongsToMany(Song::class);
     }

@@ -15,9 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/playlist">Playlist</a>
         </li>
-        <li class="nav-item">
+       @if(Auth::user()) <li class="nav-item">
           <a class="nav-link" href="/allPlaylists">All Playlists</a>
-        </li>
+        </li>@endif
 
         <ul class="navbar-nav ms-auto position-absolute end-0">
           <!-- Authentication Links -->
