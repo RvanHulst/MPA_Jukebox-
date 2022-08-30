@@ -32,8 +32,6 @@ class Queue
     //public function deletePlaylistItems($request, $id){
     //  $request->session->forget('id', $id);
     // }
-
-
     // Delete playlistItems function
     public function deletePlaylistItems($request, $id, $index){
         unset($this->playlist[$index]);
@@ -47,18 +45,6 @@ class Queue
         //sessie ophalen.
 
         //sessie nieuwe opslaan en de oude overschrijven
-    }
-
-    public function addPlaylist($request, $id){
-
-    }
-
-    public function editPlaylist(){
-        
-    }
-
-    public function savePlaylist(){
-
     }
     // totalTime function
     public function totalTime(){

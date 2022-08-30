@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Queue;
 use App\Models\Playlist;
 use App\Models\PlaylistSong;
+use Illuminate\Support\Facades\Auth;
 
 
 class PlaylistController extends Controller
@@ -43,7 +44,6 @@ class PlaylistController extends Controller
                 return redirect()->route('playlist');
             } 
         }
-
         $savePlaylist->savePlaylist($request, $playlistName);
         return redirect()->route('playlist');
     }
@@ -52,14 +52,15 @@ class PlaylistController extends Controller
         $playlist = $playlist->where('user_id', auth()->user()->id)->get(); 
         return view('allPlaylists', ['playlists' => $playlist]);
     }
-    public function saveToPlaylist(){
+    public function saveToPlaylist(Request $request, $id){
+        $playlistName = $_GET['playlistName'];
         $playlist = new Playlist();
-        $playlists = $playlist->where('user_id', auth()->user()->id)->where('name', $playlistName)->get();
+        $playlists = $playlist->where('user_id',  Auth::id())->where('name', $playlistName)->get();
         
          foreach($playlists as $playlist){
             PlaylistSong::create([
                 'playlist_id' => $playlist->id,
-                'song_id' => $song_id,
+                'song_id' => $id,
             ]);
          }
          return back();
@@ -74,7 +75,7 @@ class PlaylistController extends Controller
     public function changeNameForPlaylist(){
         $oldPlaylistName = $_GET['oldPlaylistName'];
         $playlistName = $_GET['playlistName'];
-        Playlist::where('name', $oldPlaylistName)->where('user_id', auth()->user()->id)->update(['name' => $playlistName]);
+        Playlist::where('name', $oldPlaylistName)->where('user_id', Auth::id())->update(['name' => $playlistName]);
         return back();
     }
 }

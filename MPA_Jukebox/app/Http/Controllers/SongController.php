@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Playlist;
+use Illuminate\Support\Facades\Auth;
 
 class SongController extends Controller
 {
@@ -12,7 +13,7 @@ class SongController extends Controller
         $allSongs = Song::all();
 
         $playlist = new Playlist();
-        $allPlaylists = $playlist->where("user_id", auth()->user()->id)->get();
+        $allPlaylists = $playlist->where("user_id", Auth::id())->get();
 
         return view('allSongs', ['allSongs' => $allSongs, 'allPlaylists' => $allPlaylists]);
     }

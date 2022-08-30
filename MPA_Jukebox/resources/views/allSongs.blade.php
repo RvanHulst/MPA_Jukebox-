@@ -17,7 +17,7 @@
               <a href="{{ url('/playlist', $song->id)}}" class="card-link btn btn-success">Add song</a>
             </div>
             @if(Auth::user())
-            <form method="get" action="{{ url('/saveToPlaylist')}}">
+            <form method="get" action="{{ url('/saveToPlaylist', $song->id)}}">
               @csrf
               <div class="card-body">
                   <select name="playlistName">
