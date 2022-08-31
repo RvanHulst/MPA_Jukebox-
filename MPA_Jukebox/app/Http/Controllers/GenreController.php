@@ -8,19 +8,18 @@ use App\Models\Genre;
 
 class GenreController extends Controller
 {
+    /**
+     *  A function that shows all the genres
+     */
     function index(){
         $allGenres = Genre::all();
-
-        //dd($genrelist);
-
         return view('genre', compact('allGenres'));
     }
-// paramenter binding
+    // paramenter binding
+    /**
+     *  A function that shows all songs from a certain genre
+     */
     function getAllSongFromGenre(Genre $genre){
-        //$genreSongs = Genre::getSongs($genre_id);
-        //$genreSongs = Genre::where('id', $genre_id)->get();
-        //$genre = Genre::find($genre_id);
-
         return view('genreSong',['genre' => $genre]);
     }
 
